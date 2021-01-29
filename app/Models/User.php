@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'telephone'
     ];
 
     /**
@@ -40,4 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //eloquent relationhip between users and products
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
 }
