@@ -16,7 +16,7 @@ class CreateUserProductsTable extends Migration
     {
         Schema::create('user_products', function (Blueprint $table) {
             $table->id();
-            $table->integer('quatity')->nullable();
+            $table->integer('quantity')->nullable();
             $table->decimal('price', 15, 3)->nullable();
             $table->longText('description')->nullable();
             $table->string('image')->nullable();

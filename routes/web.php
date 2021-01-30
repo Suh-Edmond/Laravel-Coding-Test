@@ -17,11 +17,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 Route::get('/', [App\Http\Controllers\ProductController::class, 'index']);
-//route to add products to marketstore
-Route::get('/products/create', [App\Http\Controllers\ProductController::class, 'create']);
-
 //route to store created products
-Route::post('/', [App\Http\Controllers\ProductController::class, 'store']);
+Route::post('user/products/add', [App\Http\Controllers\ProductController::class, 'store']);
 
 //Route to display all products for a user
 Route::get('user/products', [App\Http\Controllers\UserProductController::class, 'index']);
@@ -36,13 +33,13 @@ Route::post('user/products', [App\Http\Controllers\UserProductController::class,
 Route::get('user/products/{id}/edit', [App\Http\Controllers\UserProductController::class, 'edit']);
 
 //route to excute the edit operation
-Route::put('user/products/{id}', [App\Http\Controllers\UserProductController::class, 'update']);
+Route::patch('user/products/{id}', [App\Http\Controllers\UserProductController::class, 'update']);
 
 //route to show a product details
 Route::get('user/products/{id}', [App\Http\Controllers\UserProductController::class, 'show']);
 
 //route to delete user product
-Route::delete('user/product/{id}', [App\Http\Controllers\UserProductController::class, 'destroy']);
+Route::delete('user/products/{id}', [App\Http\Controllers\UserProductController::class, 'destroy']);
 
 //route to show user profile
 Route::get('user/profile', [App\Http\Controllers\UserController::class, 'show']);

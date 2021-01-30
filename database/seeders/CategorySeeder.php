@@ -17,7 +17,7 @@ class CategorySeeder extends Seeder
     {
         for ($i = 0; $i < 10; $i++) {
             DB::table('categories')->insert([
-                'name' => $faker->creditCardType,
+                'type' => $faker->creditCardType,
                 'description' => $faker->sentence(30)
             ]);
         }

@@ -17,7 +17,7 @@ class ProductSeeder extends Seeder
     {
         for ($i = 0; $i < 40; $i++) {
             DB::table('products')->insert([
-                'name' => $faker->colorName,
+                'product_name' => $faker->colorName,
                 'price' => $faker->numberBetween(10000, 500000)
             ]);
         }
