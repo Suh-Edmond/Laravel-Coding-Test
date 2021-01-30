@@ -17,7 +17,7 @@ class ManufacturerSeeder extends Seeder
     {
         for ($i = 0; $i < 7; $i++) {
             DB::table('manufacturers')->insert([
-                'name' => $faker->company,
+                'manufacturer_name' => $faker->company,
                 'email' => $faker->companyEmail,
                 'telephone' => $faker->phoneNumber,
                 'address' => $faker->address

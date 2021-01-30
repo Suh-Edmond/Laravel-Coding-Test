@@ -30,7 +30,7 @@ class UserProductSeeder extends Seeder
         for ($i = 0; $i < 60; $i++) {
             DB::table('user_products')->insert([
                 'price' => $faker->numberBetween(1000, 10000),
-                'quatity' => $faker->numberBetween(1, 100),
+                'quantity' => $faker->numberBetween(1, 100),
                 'description' => $faker->sentence(30),
                 'user_id' => random_int(1, $this->user),
                 'category_id' => random_int(1, $this->category),
