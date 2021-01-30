@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [App\Http\Controllers\ProductController::class, 'index']);
 //route to add products to marketstore
 Route::get('/products/create', [App\Http\Controllers\ProductController::class, 'create']);
 
