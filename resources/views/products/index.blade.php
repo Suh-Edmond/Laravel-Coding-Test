@@ -2,7 +2,12 @@
 
 
 @section('content')
-<div class="container pt-5">
+<div class="container">
+    <div class="row d-flex justify-left">
+        <div class="col-4 col-md-4 col-sm-12 col-xs-12 p-2">
+            <h3 class="fw-bolder"><strong>Products </strong></h3>
+        </div>
+    </div>
     <div class="row   d-flex justify-content-center border">
         @if($products != "[]")
         @foreach($products as $product)
@@ -32,16 +37,29 @@
         </div>
         @endif
     </div>
-    <div class="row pt-5">
-        <div class="d-flex justify-content-center">
-            <div>Bridge Africa Ventures is a company that helps businesses create digital identities.Do you want to advertise your product? join this group</div>
+    <div class="d-flex justify-content-center">
+        <div class="row pt-5">
+            <div>
+                <div>
+                    <p>Bridge Africa Ventures is a company that helps businesses create digital identities.</p>
+                    <p>Do you want to advertise your product? join this group
+                    <p>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row p-4">
-        <div class=" d-flex justify-content-center">
-            <a class="btn btn-outline-primary" href="user/login" role="button">Get Started</a>
+    <div class="d-flex justify-content-center">
+        <div class="row p-4">
+            <div>
+                <a class="btn btn-outline-primary" href="/login" role="button">Get Started</a>
+            </div>
         </div>
     </div>
+    <footer class="main-footer p-5 d-flex justify-content-center">
+        <strong>Copyright &copy; 2021.</strong>
+        All rights reserved.
+    </footer>
+
 </div>
 <style scoped>
     a {

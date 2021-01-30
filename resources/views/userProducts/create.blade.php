@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.home')
 
 @section('content')
 <div class="container">
@@ -12,13 +12,13 @@
                     <form class="form" method="POST" action="/user/products">
                         <div class="row rounded-border   pb-2">
                             <div class="col-12 col-sm-12 col-lg-12 col-xs-12 h6 fw-normal ">
-                                Product Name
+                                Product Name *
                             </div>
                             <div class=" pb-2   col-8 col-md-8 col-sm-12 col-lg-8 col-xs-12">
                                 <select class="form-control" required name="product_id" id="product_id">
 
                                     @foreach($products as $product)
-                                    <option value="{{$product->id}}">{{$product->product_name}}</option>
+                                    <option value="{{$product->id}}">{{$product->product_name}} </option>
                                     @endforeach
                                 </select>
                             </div>
@@ -32,7 +32,7 @@
                         </div>
                         <div class="row rounded-border  pb-2 ">
                             <div class=" col-12 col-sm-12 col-lg-12 col-xs-12 h6 fw-normal ">
-                                Product Price (CFA)
+                                Product Price (CFA)*
                             </div>
                             <div class=" pb-2   col-12 col-sm-12 col-lg-12 col-xs-12">
                                 <input type="number" class="form-control" name="price" id="price" required value="{{$product->price}}">
@@ -41,7 +41,7 @@
                         </div>
                         <div class="row rounded-border   pb-3">
                             <div class=" col-12 col-sm-12 col-lg-12 col-xs-12  ">
-                                <h6 class="fw-normal">Quantity</h6>
+                                <h6 class="fw-normal">Quantity *</h6>
                             </div>
                             <div class="col-12 col-sm-12 col-lg-12 col-xs-12">
                                 <input type="number" class="form-control" name="quantity" id="quantity" required>
@@ -63,7 +63,7 @@
                             </div>
                             <div class=" pb-2   col-12 col-sm-12 col-lg-12 col-xs-12">
                                 <select class="form-control" required name="category_id" id="category_id">
-
+                                    <option>Select Category</option>
                                     @foreach($categories as $category)
                                     <option value="{{$category->id}}">{{$category->type}}</option>
                                     @endforeach
@@ -76,7 +76,7 @@
                             </div>
                             <div class=" pb-2   col-12 col-sm-12 col-lg-12 col-xs-12">
                                 <select class="form-control" required name="manufactural_id" id="manufactural_id">
-
+                                    <option>Select Manufacturer</option>
                                     @foreach($manufacturers as $manufacturer)
                                     <option value="{{$manufacturer->id}}">{{$manufacturer->manufacturer_name}}</option>
                                     @endforeach

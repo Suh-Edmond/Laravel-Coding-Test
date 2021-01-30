@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,28 +19,32 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/', [App\Http\Controllers\ProductController::class, 'index']);
 //route to store created products
-Route::post('user/products/add', [App\Http\Controllers\ProductController::class, 'store']);
+Route::post('user/products/add', [App\Http\Controllers\ProductController::class, 'store'])->middleware('auth');
 
 //Route to display all products for a user
-Route::get('user/products', [App\Http\Controllers\UserProductController::class, 'index']);
+Route::get('user/products', [App\Http\Controllers\UserProductController::class, 'index'])->middleware('auth');
 
 //routes to add user product
-Route::get('user/products/add', [App\Http\Controllers\UserProductController::class, 'create']);
+Route::get('user/products/add', [App\Http\Controllers\UserProductController::class, 'create'])->middleware('auth');
 
 //route to store users products
-Route::post('user/products', [App\Http\Controllers\UserProductController::class, 'store']);
+Route::post('user/products', [App\Http\Controllers\UserProductController::class, 'store'])->middleware('auth');
 
 //route to edit user products
-Route::get('user/products/{id}/edit', [App\Http\Controllers\UserProductController::class, 'edit']);
+Route::get('user/products/{id}/edit', [App\Http\Controllers\UserProductController::class, 'edit'])->middleware('auth');
 
 //route to excute the edit operation
-Route::patch('user/products/{id}', [App\Http\Controllers\UserProductController::class, 'update']);
+Route::patch('user/products/{id}', [App\Http\Controllers\UserProductController::class, 'update'])->middleware('auth');
 
 //route to show a product details
-Route::get('user/products/{id}', [App\Http\Controllers\UserProductController::class, 'show']);
+Route::get('user/products/{id}', [App\Http\Controllers\UserProductController::class, 'show'])->middleware('auth');
 
 //route to delete user product
-Route::delete('user/products/{id}', [App\Http\Controllers\UserProductController::class, 'destroy']);
+Route::delete('user/products/{id}', [App\Http\Controllers\UserProductController::class, 'destroy'])->middleware('auth');
 
 //route to show user profile
-Route::get('user/profile', [App\Http\Controllers\UserController::class, 'show']);
+Route::get('user/profile', [App\Http\Controllers\UserController::class, 'show'])->middleware('auth');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
