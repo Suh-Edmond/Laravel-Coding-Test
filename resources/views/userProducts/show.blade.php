@@ -2,6 +2,18 @@
 
 @section('content')
 <div class="container pt-2">
+    <div class="row justify-content-center p-3">
+        @if (Session::has('message_update'))
+        <div class="col-6 col-md-6 col-lg-6 col-xs-12 col-sm-12 text-whiten text-center">
+            <div class="alert alert-success alert-dismissible fade show">
+                <strong>{{ Session::get('message_update') }}</strong>
+                <button type="button" class="close" data-dismiss="alert">
+                    <span>&times;</span>
+                </button>
+            </div>
+        </div>
+        @endif
+    </div>
     <div class="row d-flex justify-content-center">
         <div class="col-8 col-md-8 co-lg-8 col-xs-12 col-sm-12  pt-3 pb-3 px-3">
             <div class="card p-3">

@@ -16,7 +16,7 @@
                                 Product
                             </div>
                             <div class=" pb-2   col-12 col-sm-12 col-lg-12 col-xs-12">
-                                <select class="form-select" required name="product_id" id="product_id" value="{{old('product_id') ?? $product_details[$i]->product_id}}">
+                                <select class="form-control" required name="product_id" id="product_id" value="{{old('product_id') ?? $product_details[$i]->product_id}}">
                                     @foreach($products as $product)
                                     <option value="{{$product->id}}">{{$product->product_name}}</option>
                                     @endforeach
@@ -56,7 +56,7 @@
                                 Category
                             </div>
                             <div class=" pb-2   col-12 col-sm-12 col-lg-12 col-xs-12">
-                                <select class="form-select" required name="category_id" id="category_id" value="{{ old('category_id') ?? $product_details[$i]->category_id}}">
+                                <select class="form-control" required name="category_id" id="category_id" value="{{ old('category_id') ?? $product_details[$i]->category_id}}">
                                     @foreach($categories as $category)
                                     <option value="{{$category->id}}">{{$category->type}}</option>
                                     @endforeach
@@ -68,7 +68,7 @@
                                 Manufacturer
                             </div>
                             <div class=" pb-2   col-12 col-sm-12 col-lg-12 col-xs-12">
-                                <select class="form-select" required name="manufactural_id" id="manufactural_id" value="{{ old('manufactural_id') ?? $product_details[$i]->manufactural_id}}">
+                                <select class="form-control" required name="manufactural_id" id="manufactural_id" value="{{ old('manufactural_id') ?? $product_details[$i]->manufactural_id}}">
 
                                     @foreach($manufacturers as $manufacturer)
                                     <option value="{{$manufacturer->id}}">{{$manufacturer->manufacturer_name}}</option>
@@ -77,7 +77,7 @@
                             </div>
                         </div>
                         <div class=" d-flex justify-content-center">
-                            <button type="submit" class="btn btn-outline-primary">Save Product</button>
+                            <button type="submit" class="btn btn-primary">Save Product</button>
                         </div>
                         @csrf
                     </form>

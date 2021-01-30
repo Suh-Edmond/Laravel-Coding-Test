@@ -3,6 +3,29 @@
 
 @section('content')
 <div class="container pt-5">
+
+    <div class="row justify-content-center">
+        @if (Session::has('message'))
+        <div class="col-6 col-md-6 col-lg-6 col-xs-12 col-sm-12 text-whiten text-center">
+            <div class="alert alert-success alert-dismissible fade show">
+                <strong>{{ Session::get('message') }}</strong>
+                <button type="button" class="close" data-dismiss="alert">
+                    <span>&times;</span>
+                </button>
+            </div>
+        </div>
+        @endif
+        @if (Session::has('message_delete'))
+        <div class="col-6 col-md-6 col-lg-6 col-xs-12 col-sm-12 text-whiten text-center">
+            <div class="alert alert-success alert-dismissible fade show">
+                <strong>{{ Session::get('message_delete') }}</strong>
+                <button type="button" class="close" data-dismiss="alert">
+                    <span>&times;</span>
+                </button>
+            </div>
+        </div>
+        @endif
+    </div>
     <div class="row d-flex justify-content-center border">
         @foreach($user_products as $user_product)
         <div class="col-3 col-md-3 co-lg-3 col-xs-12 col-sm-12  pt-3 pb-3 px-3">
@@ -30,17 +53,7 @@
             </div>
         </div>
         @if(count($user_products) == null)
-        <div class="row justify-content-center pt-3">
-            <div class="col-6 col-md-6 col-lg-6 col-xs-12 col-sm-12 text-center">
-                <div class="alert alert-primary alert-dismissible fade show">
-                    <strong class="text-white">You don't have any Product</strong>
-                    <button type="button" class="close" data-dismiss="alert">
-                        <span>&times;</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
             <strong>You don't have any Product</strong> <a href="/user/products/add" class="alert-link">Add Product</a>.
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>

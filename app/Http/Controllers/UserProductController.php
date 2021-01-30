@@ -14,7 +14,8 @@ use Session;
 class UserProductController extends Controller
 {
     private $msg; //feedback message created product
-    private $msg_del; //feedback for
+    private $msg_del; //feedback for  deleted product
+    private $msg_update; //feedback fr updated ptoduct
     //get all products own by a particular user
     public function index()
     {
@@ -24,7 +25,6 @@ class UserProductController extends Controller
             ->join('products', 'products.id', '=', 'user_products.product_id')
             ->where('users.id', '=', $user_id)
             ->select('products.id', 'products.product_name', 'user_products.price')->paginate(4);
-        //dd($user_products);
         return view('userProducts.index', compact('user_products'));
     }
     //add product to stock
@@ -51,7 +51,7 @@ class UserProductController extends Controller
             'manufactural_id' => $data['manufactural_id']
         ]);
         $this->msg = "Product was Successfully Added to Stock";
-        Session::flash('message', $this->message);
+        Session::flash('message', $this->msg);
         return redirect('/user/products');
     }
     //show the details of aproduct
@@ -114,15 +114,16 @@ class UserProductController extends Controller
     public function update($id)
     {
         $user_id = 1;
+        $this->msg_update = "Product was Successfully Updated";
         $updated = UserProduct::where('user_id', '=', $user_id)->where('product_id', '=', $id)->update(request()->except(['_token', '_method']));
-        //dd($updated);
-        return redirect('/user/products/' . $id);
+        return redirect('/user/products/' . $id)->with('message_update', $this->msg_update);
     }
     //delete a product
     public function destroy($id)
     {
-
+        $this->msg_del = "Product was Successfully deleted";
+        // Session::flash('message_delete', $this->msg);
         UserProduct::where('user_id', 1)->where('product_id', '=', $id)->delete();
-        return redirect('/user/products');
+        return redirect('/user/products')->with('message_update', $this->msg_del);
     }
 }
