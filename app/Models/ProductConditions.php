@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Manufacturer extends Model
+class ProductConditions extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    //eloquent relationship between manufacturers and user_products 
-    public function userProducts()
+
+    //eloquent relationship between products and product conditions
+    public function products()
     {
-        return $this->hasMany(UserProduct::class);
+        return $this->hasMany(Product::class);
     }
 }

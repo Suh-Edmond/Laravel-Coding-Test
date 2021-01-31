@@ -35,8 +35,7 @@ class UserProductController extends Controller
     {
         $products = Product::all();
         $categories = Category::all();
-        $manufacturers = Manufacturer::all();
-        return view('userProducts.create', compact('products', 'categories', 'manufacturers'));
+        return view('userProducts.create', compact('products', 'categories'));
     }
     //store products
     public function store()
@@ -52,7 +51,6 @@ class UserProductController extends Controller
                 'quantity' => $data['quantity'],
                 'description' => $data['description'],
                 'category_id' => null,
-                'manufactural_id' => null
             ]);
         } else {
             $created = UserProduct::insert([
@@ -62,7 +60,7 @@ class UserProductController extends Controller
                 'quantity' => $data['quantity'],
                 'category_id' => $data['category_id'],
                 'description' => $data['description'],
-                'manufactural_id' => $data['manufactural_id']
+
             ]);
         }
 
@@ -75,12 +73,7 @@ class UserProductController extends Controller
     {
         $user_id = Auth::user()->id; //fake userid
         $product = $this->productDetails($user_id, $id);
-        for ($i = 0; $i < 1; $i++) {
-            $category_type = Category::where('id', '=', $product[$i]->category_id)->pluck('type');
-            $manufacturer = Manufacturer::where('id', '=', $product[$i]->manufactural_id)->pluck('manufacturer_name');
-        }
-        // dd($manufacturer);
-        return view('userProducts.show', compact('product', 'id', 'category_type', 'manufacturer'));
+        return view('userProducts.show', compact('product', 'id'));
     }
     //detailsof each product
     private function productDetails($user_id, $product_id)
@@ -99,8 +92,7 @@ class UserProductController extends Controller
                 'user_products.quantity',
                 'users.name',
                 'users.email',
-                'user_products.category_id',
-                'user_products.manufactural_id'
+
             )->get();
         return $product;
     }
@@ -110,22 +102,8 @@ class UserProductController extends Controller
         $user_id = Auth::user()->id;
         $products = Product::all();
         $categories = Category::all();
-        $manufacturers = Manufacturer::all();
         $product_details = $this->productDetails($user_id, $id);
-
-        // if ($product_details != null) {
-        //     for ($i = 0; $i < 1; $i++) {
-        //         if ($product_details[$i]->category_id  != null && $product_details[$i]->manufactural_id  != null) {
-        //             $manufacturer_name = Manufacturer::where('id', '=', $product_details[$i]->manufactural_id)->pluck('manufacturer_name');
-        //             $category_type = Category::where('id', '=', $product_details[$i]->category_id)->pluck('type');
-        //         } else {
-        //             $manufacturer_name = null;
-        //             $category_type = null;
-        //         }
-        //     }
-        // }
-        // dd($product_details);
-        return view('userProducts.edit', compact('products', 'categories', 'manufacturers', 'product_details'));
+        return view('userProducts.edit', compact('products', 'categories', 'product_details'));
     }
 
 
@@ -134,6 +112,7 @@ class UserProductController extends Controller
     {
 
         $user_id = Auth::user()->id;
+        dd(request()->all());
         $this->msg_update = "Product was Successfully Updated";
         $updated = UserProduct::where('user_id', '=', $user_id)->where('product_id', '=', $id)->update(request()->except(['_token', '_method']));
         return redirect('/user/products/' . $id)->with('message_update', $this->msg_update);

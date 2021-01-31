@@ -47,24 +47,20 @@
                     @if($product[$i]->description == null)
                     <div class="card-text p-1">
                         <label class="pt-1">Description:</label>
-                        <div><strong>No Description for this Product</strong></div>
+                        <div class="rounded border p-2 border-raduis"><strong>No Description for this Product</strong></div>
                     </div>
                     @endif
+                    @if($product[$i]->description != null)
                     <div class="card-text p-1">
                         <label class="pt-1">Description:</label>
                         <div class="rounded border p-2 border-raduis"><strong>{{$product[$i]->description}}</strong></div>
                     </div>
+                    @endif
                     <div class="card-text p-1">
                         <label>Quantity in Stock: <strong>{{$product[$i]->quantity}}</strong> </label>
                     </div>
                     <div class="card-text p-1">
                         <label class="pt-1">Price: <strong>{{$product[$i]->price}}</strong></label>
-                    </div>
-                    <div class="card-text p-1">
-                        <label class="pt-1">Category: <strong>{{$category_type[$i]}}</strong></label>
-                    </div>
-                    <div class="card-text p-1">
-                        <label class="pt-1">Manufacturer: <strong>{{$manufacturer[$i]}}</strong></label>
                     </div>
                     <div class="card-text p-1">
                         <label class="pt-1">Name of Vendor: <strong>{{$product[$i]->name}}</strong></label>

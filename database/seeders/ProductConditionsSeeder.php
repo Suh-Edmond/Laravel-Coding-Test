@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Generator as Faker;
 
-class CategorySeeder extends Seeder
+class ProductConditionsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,9 +16,8 @@ class CategorySeeder extends Seeder
     public function run(Faker $faker)
     {
         for ($i = 0; $i < 10; $i++) {
-            DB::table('categories')->insert([
-                'type' => $faker->creditCardType,
-                'description' => $faker->sentence(30)
+            DB::table('product_conditions')->insert([
+                'condition' => $faker->creditCardType,
             ]);
         }
     }
