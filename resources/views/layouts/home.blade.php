@@ -32,7 +32,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <strong>{{ config('app.name', 'Laravel') }}</strong>
+                    {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -41,39 +41,26 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/">Our Products</a>
-                        </li>
-                        @if(Auth::check())
-                        <li class="nav-item">
-                            <a class="nav-link " href="/user/products">My Products</a>
-                        </li>
-
-                        @endif
-                        <li class="nav-item">
-                            <a class="nav-link " href="#">Contact Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="#">About Us</a>
-                        </li>
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/">Our Products</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/user/products">My Products</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="#">Contact Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="#">About Us</a>
+                            </li>
+                        </ul>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        @guest
-                        @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @endif
-
-                        @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                        @endif
-                        @else
+                        @if(Auth::check())
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
@@ -84,15 +71,19 @@
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
-                                <a class="dropdown-item" href="/user/profile">
-                                    Account
-                                </a>
+
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
                             </div>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/user/profile">
+                                    Account
+                                </a>
+                            </div>
                         </li>
-                        @endguest
+                        @endif
+
                     </ul>
                 </div>
             </div>
@@ -100,9 +91,11 @@
 
         <main class="py-4">
             @yield('content')
-
         </main>
-
+        <footer class="main-footer p-5 d-flex justify-content-center">
+            <strong>Copyright &copy; 2021.</strong>
+            All rights reserved.
+        </footer>
     </div>
 </body>
 
