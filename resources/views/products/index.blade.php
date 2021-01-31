@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="row   d-flex justify-content-center border">
-        @if($products != "[]")
+
         @foreach($products as $product)
         <div class="col-3 col-md-3 co-lg-3 col-xs-12 col-sm-12  pt-3 pb-3 px-3">
             <div class="card">
@@ -35,7 +35,7 @@
                 {{$products->links('pagination::bootstrap-4')}}
             </div>
         </div>
-        @endif
+
     </div>
     <div class="d-flex justify-content-center">
         <div class="row pt-5">

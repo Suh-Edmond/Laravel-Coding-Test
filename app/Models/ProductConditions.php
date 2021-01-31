@@ -13,6 +13,6 @@ class ProductConditions extends Model
     //eloquent relationship between products and product conditions
     public function products()
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany('App\Models\Product');
     }
 }

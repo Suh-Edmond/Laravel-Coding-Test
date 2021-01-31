@@ -31,7 +31,7 @@
         @endif
     </div>
     <div class="row d-flex justify-content-center border">
-        @foreach($user_products as $user_product)
+        @foreach($products as $user_product)
         <div class="col-3 col-md-3 co-lg-3 col-xs-12 col-sm-12  pt-3 pb-3 px-3">
             <div class="card">
                 <div class="p-4">
@@ -51,7 +51,7 @@
             </div>
         </div>
         @endforeach
-        @if(count($user_products) == null)
+        @if(count($products) == null)
         <div class="alert alert-info alert-dismissible fade show" role="alert">
             <strong>Sorry! You don't have any Product</strong> <a href="/user/products/add" class="alert-link">Add Product</a>.
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -62,7 +62,7 @@
     </div>
     <div class="row justify-content-start pt-3">
         <div>
-            {{$user_products->links('pagination::bootstrap-4')}}
+            {{$products->links('pagination::bootstrap-4')}}
         </div>
     </div>
 </div>

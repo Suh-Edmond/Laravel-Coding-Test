@@ -17,7 +17,7 @@ class ProductConditionsSeeder extends Seeder
     {
         for ($i = 0; $i < 10; $i++) {
             DB::table('product_conditions')->insert([
-                'condition' => $faker->creditCardType,
+                'type' => $faker->creditCardType,
             ]);
         }
     }

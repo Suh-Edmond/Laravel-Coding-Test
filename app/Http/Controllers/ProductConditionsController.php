@@ -6,5 +6,5 @@ use Illuminate\Http\Request;
 
 class ProductConditionsController extends Controller
 {
-    //
+    protected $gaurded = [];
 }

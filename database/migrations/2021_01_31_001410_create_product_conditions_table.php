@@ -16,7 +16,7 @@ class CreateProductConditionsTable extends Migration
     {
         Schema::create('product_conditions', function (Blueprint $table) {
             $table->id();
-            $table->string('condition');
+            $table->string('type');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });

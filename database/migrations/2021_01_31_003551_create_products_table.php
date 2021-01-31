@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('product_condition_id');
             $table->boolean('discount')->nullable();
             $table->boolean('in_stocked')->nullable();
+            $table->boolean('service')->nullable();
             $table->boolean('published')->nullable();
             $table->foreign('product_condition_id')
                 ->references('id')
