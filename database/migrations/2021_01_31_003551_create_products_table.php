@@ -20,11 +20,11 @@ class CreateProductsTable extends Migration
             $table->integer('quantity');
             $table->decimal('price', 15, 3);
             $table->longText('description');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->unsignedBigInteger('product_condition_id');
             $table->boolean('discount')->nullable();
             $table->boolean('in_stocked')->nullable();
-            $table->boolean('publish')->nullable();
+            $table->boolean('published')->nullable();
             $table->foreign('product_condition_id')
                 ->references('id')
                 ->on('product_conditions')
