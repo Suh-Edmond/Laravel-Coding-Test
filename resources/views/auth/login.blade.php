@@ -44,7 +44,7 @@
                         </div>
                         <div class="row d-flex justify-content-center">
                             <div>
-                                <button type="submit" class="btn  custom-btn">
+                                <button type="submit" class="btn text-white custom-btn">
                                     {{ __('SIGN IN') }}
                                 </button>
                             </div>

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-6 col-md-6 col-sm-12 col-xs-12">
             <div class="card">
-                <div class="card-header text-center bg-primary text-white">
+                <div class="card-header text-center text-white">
                     <h4><strong>{{ __('SIGN UP NOW') }}</strong></h4>
                 </div>
 
@@ -82,7 +82,7 @@
 
                         <div class="row d-flex justify-content-center">
                             <div>
-                                <button type="submit" class="btn  custom-btn">
+                                <button type="submit" class="btn text-white  custom-btn">
                                     {{ __('SIGN UP') }}
                                 </button>
                             </div>
