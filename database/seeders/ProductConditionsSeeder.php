@@ -15,10 +15,20 @@ class ProductConditionsSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i = 0; $i < 10; $i++) {
-            DB::table('product_conditions')->insert([
-                'type' => $faker->creditCardType,
-            ]);
-        }
+        DB::table('product_conditions')->insert([
+            'type' => "Excellent"
+        ]);
+        DB::table('product_conditions')->insert([
+            'type' => "Good",
+        ]);
+        DB::table('product_conditions')->insert([
+            'type' => "In Used",
+        ]);
+        DB::table('product_conditions')->insert([
+            'type' => "Robust",
+        ]);
+        DB::table('product_conditions')->insert([
+            'type' => "Week",
+        ]);
     }
 }

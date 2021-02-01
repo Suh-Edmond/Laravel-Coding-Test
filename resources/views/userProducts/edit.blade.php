@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <form class="form" method="POST" action="/user/products/{{$product->id}}">
                         @method('PATCH')
-                        @include('Form.product')
+                        @include('Form.productUpdate')
                         <div class=" d-flex justify-content-center">
                             <button type="submit" class="btn btn-primary">Save Product</button>
                         </div>

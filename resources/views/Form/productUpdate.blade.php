@@ -2,14 +2,9 @@
       <div class="col-12 col-sm-12 col-lg-12 col-xs-12 h6 fw-normal ">
           Product Name*
       </div>
-      <div class=" pb-2   col-6 col-md-6 col-sm-12 col-lg-6 col-xs-12">
+      <div class=" pb-2   col-12 col-md-12 col-sm-12 col-lg-12 col-xs-12">
           <input type="text" class="form-control" name="product_name" id="product_name" required value="{{ old('product_name') ?? $product->product_name}}">
       </div>
-      <div class="col-6 col-md-6 col-sm-12 col-lg-6 col-xs-12">
-          <div class="text-center">Product Image</div>
-          <div><input type="file" name="image" id="image" /> </div>
-      </div>
-
   </div>
   <div class="row rounded-border  pb-2 ">
       <div class=" col-6 col-sm-6 col-lg-6 col-xs-12 h6 fw-normal ">

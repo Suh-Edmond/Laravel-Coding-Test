@@ -30,7 +30,12 @@
         <div class="col-3 col-md-3 co-lg-3 col-xs-12 col-sm-12  pt-3 pb-3 px-3">
             <div class="card">
                 <div class="p-4">
-                    <img src="{{asset('img/laptop.jpeg')}}" class="card-img-top" alt="Product Image">
+                    @if($user_product->image == null)
+                    <img src="{{asset('img/NoImage.jpg')}}" class="card-img-top " alt="Product Image" style="width: 200px; height:200px">
+                    @endif
+                    @if($user_product->image != null)
+                    <img src="{{asset('storage/' . $user_product->image)}}" class="card-img-top" alt="Product Image" style="width: 200px; height:200px">
+                    @endif
                 </div>
                 <div class="card-body">
                     <div><label>Name: </label>
@@ -46,11 +51,7 @@
             </div>
         </div>
         @endforeach
-        <div class="row justify-content-center pt-3">
-            <div>
-                {{$user_products->links('pagination::bootstrap-4')}}
-            </div>
-        </div>
+
         @if(count($user_products) == null)
         <div class="alert alert-info alert-dismissible fade show " role="alert">
             <strong>Sorry! You don't have any Product</strong> <a href="/user/products/add" class="alert-link">Add Product</a>.
@@ -59,6 +60,11 @@
             </button>
         </div>
         @endif
+    </div>
+    <div class="row justify-content-center pt-3">
+        <div>
+            {{$user_products->links('pagination::bootstrap-4')}}
+        </div>
     </div>
 </div>
 <style scoped>
