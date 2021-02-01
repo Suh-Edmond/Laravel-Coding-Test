@@ -35,12 +35,13 @@ class ProductController extends Controller
     {
         $data = $this->validateFields();
         $product = Products::create($data);
+        $this->storeImage($product);
         $product_id = $product->id;
         $created = DB::table('user_products')->insert([
             'user_id' => Auth::user()->id,
             'product_id' => $product_id
         ]);
-        $this->storeImage($product);
+
         return redirect('/user/products')->with("message", "Product was Successfully Created");
     }
     ///show  product detail
@@ -76,7 +77,6 @@ class ProductController extends Controller
     {
         $data = $this->validateFields();
         $updated = Products::findOrFail($id)->update($data);
-        $this->storeImage($updated);
         return redirect('/user/products/' . $id)->with('message', "Product was Successfully Updated");
     }
     //delete product
@@ -88,30 +88,41 @@ class ProductController extends Controller
     //validate field
     private function validateFields()
     {
-        $data = request()->validate([
-            'product_name' => 'required',
-            'price' => 'required',
-            'quantity' => 'required',
-            'description' => 'required',
-            'product_condition_id' => 'required',
-            'discount' => 'numeric',
-            'in_stocked' => 'numeric',
-            'service' => 'numeric',
-            'published' => 'numeric'
-        ]);
         if (request()->hasFile('image')) {
-            request()->validate([
-                'image' => 'file|image',
+            $data = request()->validate([
+                'product_name' => 'required',
+                'price' => 'required',
+                'quantity' => 'required',
+                'description' => 'required',
+                'product_condition_id' => 'required',
+                'discount' => 'numeric',
+                'in_stocked' => 'numeric',
+                'service' => 'numeric',
+                'published' => 'numeric',
+                'image' => 'image|max:5000'
+            ]);
+        } else {
+            $data = request()->validate([
+                'product_name' => 'required',
+                'price' => 'required',
+                'quantity' => 'required',
+                'description' => 'required',
+                'product_condition_id' => 'required',
+                'discount' => 'numeric',
+                'in_stocked' => 'numeric',
+                'service' => 'numeric',
+                'published' => 'numeric',
+
             ]);
         }
         return $data;
     }
     // //store image
-    private function storeImage($user)
+    private function storeImage($product)
     {
-        if (request()->hasFile('image')) {
-            $user->update([
-                'image' => request()->image->store('img', 'public')
+        if (request()->has('image')) {
+            $product->update([
+                'image' => request()->image->store('img', 'public'),
             ]);
         }
     }

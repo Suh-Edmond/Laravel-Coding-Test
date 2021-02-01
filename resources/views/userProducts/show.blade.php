@@ -17,21 +17,25 @@
     <div class="row d-flex justify-content-center">
         <div class="col-8 col-md-8 co-lg-8 col-xs-12 col-sm-12   pb-3">
             <div class="card ">
-                <div class="p-2 d-flex justify-content-center">
+                <div class="p-2 d-flex justify-content-center pt-3">
                     <div>
-                        <img src="{{asset('img/laptop.jpeg')}}" class="card-img-top" alt="Product Image" style="width: 130px; height:130px">
+                        @if($details->image == null)
+                        <img src="{{asset('img/NoImage.jpg')}}" class="card-img-top " alt="Product Image" style="width: 310px; height:200px">
+                        @endif
+                        @if($details->image != null)
+                        <img src="{{asset('storage/' . $details->image)}}" class="card-img-top" alt="Product Image" style="width: 310px; height:200px">
+                        @endif
                         <div class="d-flex justify-content-between p-3">
                             <p>
                                 <a href="/user/products/{{$details->id}}/edit" class="btn btn-outline-primary" data-toggle="tooltip" title="Edit Product">
-                                    <i class="fas fa-edit">
-                                    </i>
+                                    Edit
                                 </a>
                             </p>
                             <p>
                             <form method="POST" action="/user/products/{{$details->id}}">
                                 @method("DELETE")
                                 <button type="submit" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="top" title="Delete Product">
-                                    <i class="fas fa-trash"></i>
+                                    Delete
                                 </button>
                                 @csrf
                             </form>

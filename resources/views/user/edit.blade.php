@@ -17,7 +17,7 @@
                     <div class="row rounded-border pb-3">
                         <div class=" col-12 col-sm-12 col-lg-12 col-xs-12 h6">
 
-                            <span class="pl-2"><i class="fas fa-user pr-3"></i> Name</span>
+                            <span class="pl-2"> Name</span>
                         </div>
                         <div class="col-12 col-sm-12 col-lg-12 col-xs-12">
                             <input type="text" class="form-control" name="name" required value="{{$user->name}}">
@@ -26,8 +26,8 @@
                     <div class="row rounded-border pb-3">
                         <div class="col-sm-12 col-lg-12 col-xs-12 h6">
                             <span class="pl-2">
-                                <i class="fas fa-envelope pr-3"></i>
-                                Email
+
+                                E-Mail Address
                             </span>
                         </div>
                         <div class="col-12 col-sm-12 col-lg-12 col-xs-12">
@@ -37,7 +37,7 @@
                     <div class="row rounded-border pb-3">
                         <div class="col-sm-12 col-lg-12 col-xs-12 h6">
                             <span class="pl-2">
-                                <i class="fas fa-phone-alt pr-3"></i>
+
                                 Telephone
                             </span>
                         </div>
@@ -58,4 +58,10 @@
         </div>
     </div>
 </div>
+<style scoped>
+    .btn {
+        width: 12rem;
+    }
+</style>
+
 @endsection
