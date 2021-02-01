@@ -9,7 +9,7 @@
                     <h4 class="fw-bold text-center text-white">Add Product to StockS</h5>
                 </div>
                 <div class="card-body">
-                    <form class="form" method="POST" action="/user/products">
+                    <form class="form" method="POST" action="/user/products" enctype="multipart/form-data">
                         @include('Form.product')
                         <div class=" d-flex justify-content-center">
                             <button type="submit" class="btn btn-primary">Add Product</button>

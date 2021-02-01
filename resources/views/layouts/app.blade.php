@@ -42,7 +42,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="/">Our Products</a>
+                            <a class="nav-link active" href="/">Market Products</a>
                         </li>
                         @if(Auth::check())
                         <li class="nav-item">
@@ -84,7 +84,7 @@
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
-                                <a class="dropdown-item" href="/user/profile">
+                                <a class="dropdown-item" href="/user/profile/{{Auth::user()->id}}">
                                     Account
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
