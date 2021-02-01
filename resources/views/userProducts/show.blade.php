@@ -19,7 +19,7 @@
             <div class="card ">
                 <div class="p-2 d-flex justify-content-center">
                     <div>
-                        <img src="{{asset('img/user.png')}}" class="card-img-top" alt="Product Image" style="width: 130px; height:130px">
+                        <img src="{{asset('img/laptop.jpeg')}}" class="card-img-top" alt="Product Image" style="width: 130px; height:130px">
                         <div class="d-flex justify-content-between p-3">
                             <p>
                                 <a href="/user/products/{{$details->id}}/edit" class="btn btn-outline-primary" data-toggle="tooltip" title="Edit Product">

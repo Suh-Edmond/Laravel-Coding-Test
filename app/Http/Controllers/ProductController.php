@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Products;
+
+use App\Models\User;
 use App\Models\ProductConditions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,6 +40,7 @@ class ProductController extends Controller
             'user_id' => Auth::user()->id,
             'product_id' => $product_id
         ]);
+        $this->storeImage($product);
         return redirect('/user/products')->with("message", "Product was Successfully Created");
     }
     ///show  product detail
@@ -73,6 +76,7 @@ class ProductController extends Controller
     {
         $data = $this->validateFields();
         $updated = Products::findOrFail($id)->update($data);
+        $this->storeImage($updated);
         return redirect('/user/products/' . $id)->with('message', "Product was Successfully Updated");
     }
     //delete product
@@ -95,6 +99,20 @@ class ProductController extends Controller
             'service' => 'numeric',
             'published' => 'numeric'
         ]);
+        if (request()->hasFile('image')) {
+            request()->validate([
+                'image' => 'file|image',
+            ]);
+        }
         return $data;
+    }
+    // //store image
+    private function storeImage($user)
+    {
+        if (request()->hasFile('image')) {
+            $user->update([
+                'image' => request()->image->store('img', 'public')
+            ]);
+        }
     }
 }

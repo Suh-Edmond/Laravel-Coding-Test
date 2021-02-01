@@ -2,19 +2,19 @@
       <div class="col-12 col-sm-12 col-lg-12 col-xs-12 h6 fw-normal ">
           Product Name*
       </div>
-      <div class=" pb-2   col-8 col-md-8 col-sm-12 col-lg-8 col-xs-12">
+      <div class=" pb-2   col-6 col-md-6 col-sm-12 col-lg-6 col-xs-12">
           <input type="text" class="form-control" name="product_name" id="product_name" required value="{{ old('product_name') ?? $product->product_name}}">
       </div>
-      <div class="col-4 col-md-4 col-sm-12 col-lg-4 col-xs-12">
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-              Product Image
-          </button>
+      <div class="col-6 col-md-6 col-sm-12 col-lg-6 col-xs-12">
+          <div class="card">
+              <div class="card-header text-center">Product Image</div>
+              <div class="card-body"><input type="file" name="image" id="image" /> </div>
+          </div>
 
       </div>
   </div>
   <div class="row rounded-border  pb-2 ">
-      <div class=" col-12 col-sm-12 col-lg-12 col-xs-12 h6 fw-normal ">
+      <div class=" col-6 col-sm-6 col-lg-6 col-xs-12 h6 fw-normal ">
           Product Price* (CFA)
       </div>
       <div class=" pb-2   col-12 col-sm-12 col-lg-12 col-xs-12">
