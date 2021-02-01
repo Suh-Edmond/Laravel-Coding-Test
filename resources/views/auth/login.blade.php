@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-6 col-md-6">
             <div class="card">
-                <div class="card-header text-center bg-primary text-white">
+                <div class="card-header text-center   text-white">
                     <h4><strong>{{ __('SIGN IN NOW') }}</strong></h4>
                 </div>
 
@@ -44,7 +44,7 @@
                         </div>
                         <div class="row d-flex justify-content-center">
                             <div>
-                                <button type="submit" class="btn btn-primary custom-btn">
+                                <button type="submit" class="btn text-white custom-btn">
                                     {{ __('SIGN IN') }}
                                 </button>
                             </div>
@@ -72,6 +72,7 @@
 <style scoped>
     .card-header {
         font-weight: bolder;
+        background-color: darkcyan;
     }
 
     label {
@@ -80,6 +81,7 @@
 
     .btn {
         width: 11rem;
+        background-color: darkcyan;
     }
 
     a {
