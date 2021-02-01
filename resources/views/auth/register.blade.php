@@ -82,7 +82,7 @@
 
                         <div class="row d-flex justify-content-center">
                             <div>
-                                <button type="submit" class="btn btn-primary custom-btn">
+                                <button type="submit" class="btn  custom-btn">
                                     {{ __('SIGN UP') }}
                                 </button>
                             </div>
@@ -96,6 +96,7 @@
 <style scoped>
     .card-header {
         font-weight: bolder;
+        background-color: darkcyan;
     }
 
     label {
@@ -104,6 +105,7 @@
 
     .btn {
         width: 11rem;
+        background-color: darkcyan;
     }
 </style>
 @endsection
