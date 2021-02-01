@@ -26,15 +26,15 @@
                         <img src="{{asset('storage/' . $details->image)}}" class="card-img-top" alt="Product Image" style="width: 310px; height:200px">
                         @endif
                         <div class="d-flex justify-content-between p-3">
-                            <p>
-                                <a href="/user/products/{{$details->id}}/edit" class="btn btn-outline-primary" data-toggle="tooltip" title="Edit Product">
+                            <p class="pr-5">
+                                <a href="/user/products/{{$details->id}}/edit" class="btn btn-edit text-white " data-toggle="tooltip" title="Edit Product">
                                     Edit
                                 </a>
                             </p>
-                            <p>
+                            <p class="pr-5">
                             <form method="POST" action="/user/products/{{$details->id}}">
                                 @method("DELETE")
-                                <button type="submit" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="top" title="Delete Product">
+                                <button type="submit" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Product">
                                     Delete
                                 </button>
                                 @csrf
@@ -115,4 +115,9 @@
             </div>
         </div>
     </div>
+    <style scoped>
+        .btn-edit {
+            background-color: darkcyan;
+        }
+    </style>
     @endsection

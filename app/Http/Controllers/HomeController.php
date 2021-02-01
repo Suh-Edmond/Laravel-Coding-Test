@@ -30,7 +30,7 @@ class HomeController extends Controller
             ->join('users', 'users.id', '=', 'user_products.user_id')
             ->join('products', 'products.id', '=', 'user_products.product_id')
             ->where('users.id', '=', $user_id)
-            ->select('products.*')->paginate(4);
+            ->select('products.*')->paginate(8);
 
         return view('home.home', compact('user_products'));
     }

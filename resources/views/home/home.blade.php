@@ -1,9 +1,9 @@
 @extends('layouts.home')
 
 @section('content')
-<div class="container pt-5">
+<div class="container-fluid">
 
-    <div class="row justify-content-center">
+    <div class=" row justify-content-center">
         @if (Session::has('message'))
         <div class="col-6 col-md-6 col-lg-6 col-xs-12 col-sm-12 text-whiten text-center">
             <div class="alert alert-success alert-dismissible fade show">
@@ -25,13 +25,13 @@
         </div>
         @endif
     </div>
-    <div class="row d-flex justify-content-center border">
+    <div class="row  border ml-2 mr-2 pt-2 ">
         @foreach($user_products as $user_product)
-        <div class="col-3 col-md-3 co-lg-3 col-xs-12 col-sm-12  pt-3 pb-3 px-3">
-            <div class="card">
-                <div class="p-4">
+        <div class="col-4 col-md-4 co-lg-4 col-xs-12 col-sm-12 pt-1">
+            <div class="card  mb-3">
+                <div class="p-4 d-flex justify-content-center">
                     @if($user_product->image == null)
-                    <img src="{{asset('img/NoImage.jpg')}}" class="card-img-top " alt="Product Image" style="width: 200px; height:200px">
+                    <img src=" {{asset('img/NoImage.jpg')}}" class="card-img-top " alt="Product Image" style="width: 200px; height:200px">
                     @endif
                     @if($user_product->image != null)
                     <img src="{{asset('storage/' . $user_product->image)}}" class="card-img-top" alt="Product Image" style="width: 200px; height:200px">
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <p><a href="/user/products/{{$user_product->id}}">See more</a></p>
+                    <p><a href="/user/products/{{$user_product->id}}">See more >>></a></p>
                 </div>
             </div>
         </div>
@@ -61,9 +61,10 @@
         </div>
         @endif
     </div>
-    <div class="row justify-content-center pt-3">
+    <div class="row  justify-content-center pt-3 pl-4">
         <div>
-            {{$user_products->links('pagination::bootstrap-4')}}
+            <p> {{$user_products->links('pagination::bootstrap-4')}}</p>
+            <p class="text-primary"> {{ $user_products->firstItem() }} to {{ $user_products->lastItem() }} entries of total {{$user_products->total()}} entries</p>
         </div>
     </div>
 </div>

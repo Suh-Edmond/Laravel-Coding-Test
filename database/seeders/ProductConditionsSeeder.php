@@ -28,7 +28,7 @@ class ProductConditionsSeeder extends Seeder
             'type' => "Robust",
         ]);
         DB::table('product_conditions')->insert([
-            'type' => "Week",
+            'type' => "Weak Product",
         ]);
     }
 }
