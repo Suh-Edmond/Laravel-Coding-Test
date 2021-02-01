@@ -5,7 +5,7 @@
     <div class="row d-flex justify-content-center pt-4">
 
         <div class="card  " style="width: 40rem;">
-            <div class="d-flex justify-content-center pt-1">
+            <div class="d-flex justify-content-center pt-3">
                 <avatar size="100px">
                     <img src="{{asset('img/user.png')}}" style="width: 100px; height: 100px" />
                 </avatar>
@@ -47,7 +47,7 @@
                     </div>
                     <div class="row justify-content-center">
                         <div>
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn text-white">
                                 Save Profile
                             </button>
                         </div>
@@ -61,6 +61,7 @@
 <style scoped>
     .btn {
         width: 12rem;
+        background-color: darkcyan;
     }
 </style>
 

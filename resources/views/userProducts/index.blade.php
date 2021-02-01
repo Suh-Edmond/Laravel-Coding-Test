@@ -2,10 +2,10 @@
 
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-12 col-md-12 col-lg-12 col-sm-12 p-3 d-flex justify-content-end">
-            <a class="btn btn-primary" href="/user/products/add" role="button">Add Product</a>
+        <div class="col-12 col-md-12 col-lg-12 col-sm-12 p-3 d-flex justify-content-end pr-4">
+            <a class="btn text-white" href="/user/products/add" role="button">Add Product</a>
         </div>
     </div>
     <div class="row justify-content-center">
@@ -30,11 +30,11 @@
         </div>
         @endif
     </div>
-    <div class="row d-flex justify-content-center border">
+    <div class="row border ml-2 mr-2 pt-2">
         @foreach($products as $user_product)
-        <div class="col-3 col-md-3 co-lg-3 col-xs-12 col-sm-12  pt-3 pb-3 px-3">
-            <div class="card">
-                <div class="p-4">
+        <div class="col-4 col-md-4 co-lg-4 col-xs-12 col-sm-12 pt-1">
+            <div class="card mb-3">
+                <div class="p-4 d-flex justify-content-center">
                     @if($user_product->image == null)
                     <img src="{{asset('img/NoImage.jpg')}}" class="card-img-top " alt="Product Image" style="width: 200px; height:200px">
                     @endif
@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <p><a href="/user/products/{{$user_product->id}}">See more</a></p>
+                    <p><a href="/user/products/{{$user_product->id}}">See more >>></a></p>
                 </div>
             </div>
         </div>
@@ -65,15 +65,21 @@
         </div>
         @endif
     </div>
-    <div class="row justify-content-start pt-3">
+    <div class="row justify-content-center pt-3 pl-4">
         <div>
-            {{$products->links('pagination::bootstrap-4')}}
+            <p>{{$products->links('pagination::bootstrap-4')}}</p>
+
+            <p class="text-primary"> {{ $products->firstItem() }} to {{ $products->lastItem() }} entries of total {{$products->total()}} entries</p>
         </div>
     </div>
 </div>
 <style scoped>
     a {
         text-decoration: none;
+    }
+
+    .btn {
+        background-color: darkcyan;
     }
 </style>
 @endsection

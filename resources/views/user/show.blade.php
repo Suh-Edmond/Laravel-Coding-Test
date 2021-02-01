@@ -10,7 +10,7 @@
             </div>
             <div class="d-flex justify-content-center">
                 <avatar size="170px">
-                    <img src="{{asset('img/user.png')}}" style="width: 170px; height: 170px" />
+                    <img src="{{asset('img/user.png')}}" style="width: 150px; height: 150px" />
                 </avatar>
             </div>
             <div class="card-body justify-content-center">

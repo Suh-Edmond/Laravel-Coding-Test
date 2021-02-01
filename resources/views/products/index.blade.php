@@ -2,18 +2,17 @@
 
 
 @section('content')
-<div class="container">
+<div class="container-fluid  ">
     <div class="row d-flex justify-left">
-        <div class="col-4 col-md-4 col-sm-12 col-xs-12 p-2">
-            <h3 class="fw-bolder"><strong>Products </strong></h3>
+        <div class="col-4 col-md-4 col-sm-12 col-xs-12  pl-3">
+            <h3 class="fw-bolder pl-3"><strong>Our Products </strong></h3>
         </div>
     </div>
-    <div class="row   d-flex justify-content-center border">
-
+    <div class="row   border ml-2 mr-2 pt-2">
         @foreach($products as $product)
-        <div class="col-3 col-md-3 co-lg-3 col-xs-12 col-sm-12  pt-3 pb-3 px-3">
-            <div class="card">
-                <div class="p-4">
+        <div class="col-4 col-md-4 co-lg-4 col-xs-12 col-sm-12 pt-1">
+            <div class="card mb-3">
+                <div class="p-4 d-flex justify-content-center">
                     @if($product->image == null)
                     <img src="{{asset('img/NoImage.jpg')}}" class="card-img-top " alt="Product Image" style="width: 200px; height:200px">
                     @endif
@@ -23,22 +22,23 @@
                 </div>
                 <div class="card-body">
                     <div><label>Product Name: </label>
-                        <span class="pr-5"><strong> {{$product->product_name}}</strong></span>
+                        <span><strong> {{$product->product_name}}</strong></span>
                     </div>
                     <div class="card-text">
-                        <label>Price: <strong>{{$product->price}}</strong> </label>
+                        <label>Price: <strong>{{$product->price}} CFA</strong> </label>
                     </div>
                 </div>
                 <div class="card-footer">
-                    <p><a href="/user/products/{{$product->id}}">See more</a></p>
+                    <p><a href="/user/products/{{$product->id}}">See more >>></a></p>
                 </div>
             </div>
         </div>
         @endforeach
     </div>
-    <div class="row justify-content-center pt-3">
+    <div class="row justify-content-center pt-3 pl-4">
         <div>
-            {{$products->links('pagination::bootstrap-4')}}
+            <p class="fw-bolder"> {{$products->links('pagination::bootstrap-4')}}</p>
+            <p class="text-primary"> {{ $products->firstItem() }} to {{ $products->lastItem() }} entries of total {{$products->total()}} entries</p>
         </div>
     </div>
     <div class="d-flex justify-content-center">
@@ -59,7 +59,7 @@
             </div>
         </div>
     </div>
-    <footer class="main-footer p-5 d-flex justify-content-center">
+    <footer class="main-footer d-flex justify-content-center">
         <strong>Copyright &copy; 2021.</strong>
         All rights reserved.
     </footer>

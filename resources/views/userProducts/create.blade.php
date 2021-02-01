@@ -5,14 +5,14 @@
     <div class="row justify-content-center pt-1">
         <div class="col-7 col-md-7 col-xs-12 col-sm-12 pt-2">
             <div class="card">
-                <div class="card-header bg-primary bg-gradient">
+                <div class="card-header    ">
                     <h4 class="fw-bold text-center text-white">Add Product to Stock</h5>
                 </div>
                 <div class="card-body">
                     <form class="form" method="POST" action="/user/products" enctype="multipart/form-data">
                         @include('Form.product')
                         <div class=" d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary">Add Product</button>
+                            <button type="submit" class="btn btn-outline text-white">Add Product</button>
                         </div>
                     </form>
                 </div>
@@ -33,6 +33,12 @@
 
         .btn {
             width: 11rem;
+            background-color: darkcyan;
+
+        }
+
+        .card-header {
+            background-color: darkcyan;
         }
     </style>
     @endsection
