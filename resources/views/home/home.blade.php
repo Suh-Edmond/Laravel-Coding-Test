@@ -25,9 +25,9 @@
         </div>
         @endif
     </div>
-    <div class="row  border ml-2 mr-2 pt-2 ">
+    <div class="row  border  ">
         @foreach($user_products as $user_product)
-        <div class="col-4 col-md-4 co-lg-4 col-xs-12 col-sm-12 pt-1">
+        <div class="col-sm-4   pt-1">
             <div class="card  mb-3">
                 <div class="p-4 d-flex justify-content-center">
                     @if($user_product->image == null)
@@ -46,21 +46,20 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <p><a href="/user/products/{{$user_product->id}}">See more >>></a></p>
+                    <p><a href="/home/user/products/{{$user_product->id}}">See more >>></a></p>
                 </div>
             </div>
         </div>
         @endforeach
-
-        @if(count($user_products) == null)
-        <div class="alert alert-info alert-dismissible fade show " role="alert">
-            <strong>Sorry! You don't have any Product</strong> <a href="/user/products/add" class="alert-link">Add Product</a>.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        @endif
     </div>
+    @if(count($user_products) == null)
+    <div class=" row d-flex justify-content-center alert alert-info alert-dismissible fade show mx-1" role="alert">
+        <strong>Sorry! You don't have any Product</strong> <a href="/home/user/products/add" class="alert-link">Add Product</a>.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
     <div class="row  justify-content-center pt-3 pl-4">
         <div>
             <p> {{$user_products->links('pagination::bootstrap-4')}}</p>

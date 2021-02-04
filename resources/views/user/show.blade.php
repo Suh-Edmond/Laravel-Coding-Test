@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row d-flex justify-content-center pt-4">
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center pt-4 px-2">
 
         <div class="card" style="width: 40rem;">
             <div class="pl-4 pt-4">
@@ -38,7 +38,7 @@
                 </div>
                 <div class="row justify-content-center pt-3 pb-3">
                     <div>
-                        <a role="button" class="btn btn-primary" href="/user/profile/{{$user->id}}/edit">
+                        <a role="button" class="btn text-white" href="/user/profile/{{$user->id}}/edit">
                             Update Profile
                             <span class="pl-3"><i class="fas fa-pen"></i></span>
                         </a>
@@ -48,4 +48,9 @@
         </div>
     </div>
 </div>
+<style scoped>
+    .btn {
+        background-color: darkcyan;
+    }
+</style>
 @endsection
