@@ -4,13 +4,14 @@
 @section('content')
 <div class="container-fluid  ">
     <div class="row d-flex justify-left">
-        <div class="col-4 col-md-4 col-sm-12 col-xs-12  pl-3">
+        <div class="col-sm-6 pl-3">
             <h3 class="fw-bolder pl-3"><strong>Our Products </strong></h3>
         </div>
+        <div class="col-sm-6"></div>
     </div>
-    <div class="row   border ml-2 mr-2 pt-2">
+    <div class="row border  pt-2">
         @foreach($products as $product)
-        <div class="col-4 col-md-4 co-lg-4 col-xs-12 col-sm-12 pt-1">
+        <div class="col-sm-4 pt-1">
             <div class="card mb-3">
                 <div class="p-4 d-flex justify-content-center">
                     @if($product->image == null)
@@ -29,7 +30,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <p><a href="/user/products/{{$product->id}}">See more >>></a></p>
+                    <p><a href="/home/user/products/{{$product->id}}">See more >>></a></p>
                 </div>
             </div>
         </div>
@@ -41,8 +42,8 @@
             <p class="text-primary"> {{ $products->firstItem() }} to {{ $products->lastItem() }} entries of total {{$products->total()}} entries</p>
         </div>
     </div>
-    <div class="d-flex justify-content-center">
-        <div class="row pt-5">
+    <div class=" row mx-3 d-flex justify-content-center">
+        <div class="pt-5">
             <div>
                 <div>
                     <p>Bridge Africa Ventures is a company that helps businesses create digital identities.</p>

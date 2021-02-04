@@ -42,7 +42,7 @@ class ProductController extends Controller
             'product_id' => $product_id
         ]);
 
-        return redirect('/user/products')->with("message", "Product was Successfully Created");
+        return redirect('/home/user/products')->with("message", "Product was Successfully Created");
     }
     ///show  product detail
     public function show($id)
@@ -62,7 +62,7 @@ class ProductController extends Controller
             ->join('users', 'users.id', '=', 'user_products.user_id')
             ->join('products', 'products.id', '=', 'user_products.product_id')
             ->where('products.id', '=', $id)
-            ->select('users.name', 'users.email', 'users.telephone')->get();
+            ->select('users.id', 'users.name', 'users.email', 'users.telephone')->get();
         return $owner;
     }
     //edit product
@@ -77,13 +77,13 @@ class ProductController extends Controller
     {
         $data = $this->validateFields();
         $updated = Products::findOrFail($id)->update($data);
-        return redirect('/user/products/' . $id)->with('message', "Product was Successfully Updated");
+        return redirect('/home/user/products/' . $id)->with('message', "Product was Successfully Updated");
     }
     //delete product
     public function destroy($id)
     {
         $deleted = Products::findOrFail($id)->delete();
-        return redirect('/user/products')->with('message_delete', 'Product Successfully deleted');
+        return redirect('/home/user/products')->with('message_delete', 'Product Successfully deleted');
     }
     //validate field
     private function validateFields()

@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container pt-4">
-    <div class="row justify-content-center">
-        <div class="col-6 col-md-6">
+<div class="container-fluid pt-4">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
             <div class="card">
                 <div class="card-header text-center   text-white">
                     <h4><strong>{{ __('SIGN IN NOW') }}</strong></h4>
                 </div>
-
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
@@ -67,6 +67,7 @@
                 </div>
             </div>
         </div>
+        <div class="col-sm-3"></div>
     </div>
 </div>
 <style scoped>

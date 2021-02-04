@@ -1,48 +1,48 @@
   <div class="row rounded-border   pb-2">
-      <div class="col-12 col-sm-12 col-lg-12 col-xs-12 h6 fw-normal ">
+      <div class="col-sm-6 h6 fw-normal ">
           Product Name*
       </div>
-      <div class=" pb-2   col-6 col-md-6 col-sm-12 col-lg-6 col-xs-12">
+      <div class=" pb-2 col-sm-12">
           <input type="text" class="form-control" name="product_name" id="product_name" required value="{{ old('product_name') ?? $product->product_name}}">
       </div>
-      <div class="col-6 col-md-6 col-sm-12 col-lg-6 col-xs-12">
-          <div class="text-center">Product Image</div>
+      <div class="col-sm-6">
+          <div class="text-left">Product Image</div>
           <div><input type="file" name="image" id="image" /> </div>
       </div>
 
   </div>
   <div class="row rounded-border  pb-2 ">
-      <div class=" col-6 col-sm-6 col-lg-6 col-xs-12 h6 fw-normal ">
+      <div class=" col-sm-12 h6 fw-normal ">
           Product Price* (CFA)
       </div>
-      <div class=" pb-2   col-12 col-sm-12 col-lg-12 col-xs-12">
+      <div class=" pb-2  col-sm-12 ">
           <input type="number" class="form-control" name="price" id="price" required value="{{ old('price') ?? $product->price}}">
       </div>
 
   </div>
   <div class="row rounded-border   pb-3">
-      <div class=" col-12 col-sm-12 col-lg-12 col-xs-12  ">
+      <div class="col-sm-12  ">
           <h6 class="fw-normal">Quantity*</h6>
       </div>
-      <div class="col-12 col-sm-12 col-lg-12 col-xs-12">
+      <div class="col-sm-12">
           <input type="number" class="form-control" name="quantity" id="quantity" required value="{{old ('quantity') ?? $product->quantity}}">
       </div>
 
   </div>
   <div class="row rounded-border   pb-3">
-      <div class=" col-12 col-sm-12 col-lg-12 col-xs-12  ">
+      <div class=" col-sm-12  ">
           <h6 class="fw-normal">Description*</h6>
       </div>
-      <div class="col-12 col-sm-12 col-lg-12 col-xs-12">
+      <div class="col-sm-12">
           <textarea class="form-control" id="description" name="description" rows="4" placeholder="Please give a description of your product">{{old('description') ?? $product->description }}</textarea>
       </div>
 
   </div>
   <div class="row rounded-border   pb-2">
-      <div class="col-12 col-sm-12 col-lg-12 col-xs-12 h6 fw-normal ">
+      <div class="col-sm-12 h6 fw-normal ">
           Conditions*
       </div>
-      <div class=" pb-2   col-12 col-sm-12 col-lg-12 col-xs-12">
+      <div class=" pb-2   col-sm-12">
           <select class="form-control" required name="product_condition_id" id="product_condition_id">
               @foreach($conditions as $condition)
               <option value=" {{$condition->id}}" {{ $condition->id == $product->product_condition_id ? 'selected': ''}}>{{$condition->type}}</option>
